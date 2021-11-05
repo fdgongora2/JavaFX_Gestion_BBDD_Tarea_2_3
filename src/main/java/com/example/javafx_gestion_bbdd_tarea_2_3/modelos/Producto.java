@@ -4,15 +4,15 @@ import javafx.beans.property.*;
 
 public class Producto {
 
-  private StringProperty productCode;
-  private StringProperty productName;
-  private StringProperty productLine;
-  private StringProperty productScale;
-  private StringProperty productVendor;
-  private StringProperty productDescription;
-  private IntegerProperty quantityInStock;
-  private DoubleProperty buyPrice;
-  private DoubleProperty MSRP;
+  private final StringProperty productCode;
+  private final StringProperty productName;
+  private final StringProperty productLine;
+  private final StringProperty productScale;
+  private final StringProperty productVendor;
+  private final StringProperty productDescription;
+  private final IntegerProperty quantityInStock;
+  private final DoubleProperty buyPrice;
+  private final DoubleProperty MSRP;
 
   public Producto(String productCode, String productName, String productLine, String productScale,
                   String productVendor, String productDescription, Integer quantityInStock, Double buyPrice,

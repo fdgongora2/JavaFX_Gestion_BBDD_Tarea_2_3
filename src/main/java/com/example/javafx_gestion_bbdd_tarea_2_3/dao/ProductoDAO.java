@@ -27,7 +27,8 @@ public class ProductoDAO {
             // Nos conectamos
             conexionBBDD = DriverManager.getConnection(servidor, usuario, passwd);
             String SQL = "SELECT * "
-                    + "FROM products ";
+                    + "FROM products "
+                    + "ORDER By productName";
 
             // Ejecutamos la consulta y nos devuelve una matriz de filas (registros) y columnas (datos)
             ResultSet resultadoConsulta = conexionBBDD.createStatement().executeQuery(SQL);
