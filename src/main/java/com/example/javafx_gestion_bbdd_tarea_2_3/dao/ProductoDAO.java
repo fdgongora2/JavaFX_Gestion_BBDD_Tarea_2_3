@@ -20,7 +20,7 @@ public class ProductoDAO {
 
     private Connection conexionBBDD;
 
-    public ObservableList<Producto> obtenerProductos () throws SQLException {
+    public ObservableList<Producto> obtenerProductos (){
 
         ObservableList<Producto> datosResultadoConsulta = FXCollections.observableArrayList();
         try {

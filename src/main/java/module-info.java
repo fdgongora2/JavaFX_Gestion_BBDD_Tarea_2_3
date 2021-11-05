@@ -4,7 +4,13 @@ module com.example.javafx_gestion_bbdd_tarea_2_3 {
     requires org.mariadb.jdbc;
     requires java.sql;
 
-
     opens com.example.javafx_gestion_bbdd_tarea_2_3 to javafx.fxml;
     exports com.example.javafx_gestion_bbdd_tarea_2_3;
+
+    opens com.example.javafx_gestion_bbdd_tarea_2_3.controladores to javafx.fxml;
+    exports com.example.javafx_gestion_bbdd_tarea_2_3.controladores;
+
+    opens com.example.javafx_gestion_bbdd_tarea_2_3.modelos to javafx.fxml;
+    exports com.example.javafx_gestion_bbdd_tarea_2_3.modelos;
+
 }

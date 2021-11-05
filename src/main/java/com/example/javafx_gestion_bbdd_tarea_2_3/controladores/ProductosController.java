@@ -2,6 +2,7 @@ package com.example.javafx_gestion_bbdd_tarea_2_3.controladores;
 
 import com.example.javafx_gestion_bbdd_tarea_2_3.dao.ProductoDAO;
 import com.example.javafx_gestion_bbdd_tarea_2_3.modelos.Producto;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -61,11 +62,10 @@ public class ProductosController {
     @javafx.fxml.FXML
     private Button btnActualizar;
 
-    public void initialize() throws SQLException {
+    public void initialize()  {
         datos = productDAO.obtenerProductos();
         tvProductos.setItems(datos);
-
-        tcProductVendor.setCellValueFactory(new PropertyValueFactory<>("productVendor"));
+        tcProductVendor.setCellValueFactory(new PropertyValueFactory<Producto, String>("productCode"));
 
     }
 }
