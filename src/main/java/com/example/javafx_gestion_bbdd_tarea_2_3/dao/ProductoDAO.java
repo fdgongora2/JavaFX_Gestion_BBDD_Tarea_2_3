@@ -1,26 +1,20 @@
 package com.example.javafx_gestion_bbdd_tarea_2_3.dao;
 
 import com.example.javafx_gestion_bbdd_tarea_2_3.modelos.Producto;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ProductoDAO {
 
     private final String servidor = "jdbc:mariadb://localhost:5555/noinch?useSSL=false";
     private final String usuario = "adminer";
-    private final String passwd ="adminer";
+    private final String passwd = "adminer";
 
     private Connection conexionBBDD;
 
-    public ObservableList<Producto> obtenerProductos (){
+    public ObservableList<Producto> obtenerProductos() {
 
         ObservableList<Producto> datosResultadoConsulta = FXCollections.observableArrayList();
         try {
@@ -59,4 +53,56 @@ public class ProductoDAO {
         }
     }
 
+    // Alta de un nuevo producto
+    //
+    public Boolean altaProducto(Producto producto) {
+
+        int registrosAfectadosConsulta = 0;
+
+        try {
+            // Nos conectamos
+            conexionBBDD = DriverManager.getConnection(servidor, usuario, passwd);
+            String SQL = "INSERT INTO products ("
+                    + " productCode ,"
+                    + " productName ,"
+                    + " productLine ,"
+                    + " productScale ,"
+                    + " productVendor ,"
+                    + " productDescription ,"
+                    + " quantityInStock ,"
+                    + " buyPrice ,"
+                    + " MSRP  )"
+                    + " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement st = conexionBBDD.prepareStatement(SQL);
+            st.setString(1, producto.getProductCode());
+            st.setString(2, producto.getProductName());
+            st.setString(3, producto.getProductLine());
+            st.setString(4, producto.getProductScale());
+            st.setString(5, producto.getProductVendor());
+            st.setString(6, producto.getProductDescription());
+
+            st.setInt(7, producto.getQuantityInStock());
+            st.setDouble(8, producto.getBuyPrice());
+            st.setDouble(9, producto.getMSRP());
+
+            // Ejecutamos la consulta preparada (con las ventajas de seguridad y velocidad en el servidor de BBDD
+            // nos devuelve el número de registros afectados. Al ser un Insert nos debe devolver 1 si se ha hecho correctamente
+            registrosAfectadosConsulta = st.executeUpdate();
+            st.close();
+            conexionBBDD.close();
+
+            if (registrosAfectadosConsulta == 1) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error:" + e.toString());
+            return false;
+        }
+    }
 }
+

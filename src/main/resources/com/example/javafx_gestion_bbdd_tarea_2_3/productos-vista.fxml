@@ -12,26 +12,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.example.javafx_gestion_bbdd_tarea_2_3.controladores.ProductosController">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_gestion_bbdd_tarea_2_3.controladores.ProductosController">
+
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="98.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="238.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="30000000.0" minWidth="10.0" prefWidth="300.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
@@ -51,36 +52,36 @@
       <Label text="Precio venta" GridPane.rowIndex="10" />
       <TextField fx:id="txtID" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <TextField fx:id="txtPrecioVenta" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-      <TextField fx:id="txtPrecioCompra" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-      <TextField fx:id="txtStock" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-      <TextField fx:id="txtVendedor" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <TextField fx:id="txtEscala" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <TextField fx:id="txtLinea" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <TextField fx:id="txtDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <TableView fx:id="tvProductos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="9">
+      <TextField fx:id="txtLinea" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="txtEscala" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <TextField fx:id="txtVendedor" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextField fx:id="txtStock" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <TextField fx:id="txtPrecioCompra" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <TextField fx:id="txtPrecioVenta" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.rowSpan="8">
+         <children>
+            <Button fx:id="btnAlta" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAltaClicked" text="Alta" />
+            <Button fx:id="btnActualizar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActualizarClicked" text="Actualizar" />
+            <Button fx:id="btnBorrar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBorrarClicked" text="Borrar" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvProductos" maxWidth="1.7976931348623157E308" prefHeight="324.0" prefWidth="1800.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="12" GridPane.vgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="tcProductCode" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="tcProductName" prefWidth="75.0" text="Nombre" />
-            <TableColumn fx:id="tcProductDescription" prefWidth="75.0" text="Descripcion" />
-            <TableColumn fx:id="tcProductLine" prefWidth="75.0" text="Línea" />
-            <TableColumn fx:id="tcProductScale" prefWidth="75.0" text="Escala" />
-            <TableColumn fx:id="tcProductVendor" prefWidth="75.0" text="Vendedor" />
-            <TableColumn fx:id="tcQuantityInStock" prefWidth="75.0" text="Stock" />
-            <TableColumn fx:id="tcBuyPrice" prefWidth="75.0" text="P. Compra" />
-            <TableColumn fx:id="tcMSRP" prefWidth="75.0" text="P Venta Rec" />
+          <TableColumn fx:id="tcProductCode" text="ID" />
+            <TableColumn fx:id="tcProductName" text="Nombre" />
+            <TableColumn fx:id="tcProductLine" text="Línea" />
+            <TableColumn fx:id="tcProductScale" styleClass="centrado" text="Escala" />
+            <TableColumn fx:id="tcProductVendor" text="Vendedor" />
+            <TableColumn fx:id="tcQuantityInStock" styleClass="aderechas" text="Stock" />
+            <TableColumn fx:id="tcBuyPrice" styleClass="aderechas" text="P. Compra" />
+            <TableColumn fx:id="tcMSRP" styleClass="aderechas" text="P Venta Rec" />
+            <TableColumn fx:id="tcProductDescription" text="Descripcion" />
         </columns>
          <GridPane.margin>
             <Insets left="20.0" right="20.0" />
          </GridPane.margin>
       </TableView>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
-         <children>
-            <Button fx:id="btnAlta" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Alta" />
-            <Button fx:id="btnActualizar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Actualizar" />
-            <Button fx:id="btnBorrar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Borrar" />
-         </children>
-      </VBox>
    </children>
    <padding>
       <Insets left="10.0" />
