@@ -6,14 +6,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_gestion_bbdd_tarea_2_3.controladores.ProductosController">
 
   <columnConstraints>
@@ -63,24 +63,24 @@
       <TextField fx:id="txtPrecioVenta" GridPane.columnIndex="1" GridPane.rowIndex="10" />
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.rowSpan="8">
          <children>
-             <Button fx:id="btnAlta" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAltaClicked" text="Alta" >
+             <Button fx:id="btnAlta" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAltaClicked" prefHeight="60.0" text="Alta">
                  <graphic>
                      <ImageView>
-                         <Image url="@./imagenes/icons8-add-30.png"/>
+                         <Image url="@./imagenes/icons8-add-30.png" />
                      </ImageView>
                  </graphic>
              </Button>
-             <Button fx:id="btnActualizar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActualizarClicked" text="Actualizar" >
+             <Button fx:id="btnActualizar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActualizarClicked" prefHeight="60.0" text="Actualizar">
                  <graphic>
                      <ImageView>
-                         <Image url="@./imagenes/icons8-edit-30.png"/>
+                         <Image url="@./imagenes/icons8-edit-30.png" />
                      </ImageView>
                  </graphic>
              </Button>
-            <Button fx:id="btnBorrar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBorrarClicked" text="Borrar" >
+            <Button fx:id="btnBorrar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBorrarClicked" prefHeight="60.0" text="Borrar">
                 <graphic>
-                    <ImageView preserveRatio="true" >
-                        <Image url="@./imagenes/icons8-delete-30.png"/>
+                    <ImageView preserveRatio="true">
+                        <Image url="@./imagenes/icons8-delete-30.png" />
                     </ImageView>
                 </graphic>
             </Button>
