@@ -104,5 +104,59 @@ public class ProductoDAO {
             return false;
         }
     }
+
+    // Alta de un nuevo producto
+    //
+    public Boolean actualizarProducto(Producto producto) {
+
+        int registrosAfectadosConsulta = 0;
+
+        try {
+            // Nos conectamos
+            conexionBBDD = DriverManager.getConnection(servidor, usuario, passwd);
+            String SQL = "UPDATE products "
+                    + " SET "
+                    + " productName = ? ,"
+                    + " productLine = ? ,"
+                    + " productScale = ? ,"
+                    + " productVendor = ? ,"
+                    + " productDescription = ? ,"
+                    + " quantityInStock = ? ,"
+                    + " buyPrice = ? ,"
+                    + " MSRP = ?  "
+                    + " WHERE productCode = ? ";
+
+            PreparedStatement st = conexionBBDD.prepareStatement(SQL);
+
+            st.setString(1, producto.getProductName());
+            st.setString(2, producto.getProductLine());
+            st.setString(3, producto.getProductScale());
+            st.setString(4, producto.getProductVendor());
+            st.setString(5, producto.getProductDescription());
+
+            st.setInt(6, producto.getQuantityInStock());
+            st.setDouble(7, producto.getBuyPrice());
+            st.setDouble(8, producto.getMSRP());
+
+            st.setString(9, producto.getProductCode());
+
+            // Ejecutamos la consulta preparada (con las ventajas de seguridad y velocidad en el servidor de BBDD
+            // nos devuelve el número de registros afectados. Al ser un Insert nos debe devolver 1 si se ha hecho correctamente
+            registrosAfectadosConsulta = st.executeUpdate();
+            st.close();
+            conexionBBDD.close();
+
+            if (registrosAfectadosConsulta == 1) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error:" + e.toString());
+            return false;
+        }
+    }
 }
 

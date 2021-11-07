@@ -126,6 +126,22 @@ public class ProductosController {
     @javafx.fxml.FXML
     public void onActualizarClicked(ActionEvent actionEvent) {
 
+        if ( ! productoAux.getProductCode().trim().equals("")) {
+            if (productDAO.actualizarProducto(productoAux)) {
+                cargarDatosTabla();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "No se ha encontrado un producto con el código '"
+                         + productoAux.getProductCode() + "' .", ButtonType.OK );
+                alert.showAndWait();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Debe indicar el código del producto a actualizar.", ButtonType.OK );
+            alert.showAndWait();
+        }
+
+
+
     }
 
     @javafx.fxml.FXML
