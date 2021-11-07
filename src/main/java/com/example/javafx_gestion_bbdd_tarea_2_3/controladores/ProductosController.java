@@ -161,5 +161,29 @@ public class ProductosController {
 
     @javafx.fxml.FXML
     public void onBorrarClicked(ActionEvent actionEvent) {
+
+        Alert alert;
+
+        if ( ! productoAux.getProductCode().trim().equals("")) {
+
+            alert = new Alert(Alert.AlertType.CONFIRMATION, "¿ Desea borrar el producto con el código '"
+                    + productoAux.getProductCode() + "' ?.", ButtonType.YES, ButtonType.NO );
+
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.YES) {
+
+                if (productDAO.borrarProducto(productoAux)) {
+                    cargarDatosTabla();
+                } else {
+                    alert = new Alert(Alert.AlertType.INFORMATION, "No se ha encontrado un producto con el código '"
+                            + productoAux.getProductCode() + "' .", ButtonType.OK );
+                    alert.showAndWait();
+                }
+            }
+        }
+        else {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Debe indicar el código del producto a borrar.", ButtonType.OK );
+            alert.showAndWait();
+        }
     }
 }

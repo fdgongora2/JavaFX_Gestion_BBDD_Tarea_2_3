@@ -105,7 +105,7 @@ public class ProductoDAO {
         }
     }
 
-    // Alta de un nuevo producto
+    // Actualizar un producto existente
     //
     public Boolean actualizarProducto(Producto producto) {
 
@@ -141,7 +141,41 @@ public class ProductoDAO {
             st.setString(9, producto.getProductCode());
 
             // Ejecutamos la consulta preparada (con las ventajas de seguridad y velocidad en el servidor de BBDD
-            // nos devuelve el número de registros afectados. Al ser un Insert nos debe devolver 1 si se ha hecho correctamente
+            // nos devuelve el número de registros afectados. Al ser un Update nos debe devolver 1 si se ha hecho correctamente
+            registrosAfectadosConsulta = st.executeUpdate();
+            st.close();
+            conexionBBDD.close();
+
+            if (registrosAfectadosConsulta == 1) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error:" + e.toString());
+            return false;
+        }
+    }
+    // Actualizar un producto existente
+    //
+    public Boolean borrarProducto(Producto producto) {
+
+        int registrosAfectadosConsulta = 0;
+
+        try {
+            // Nos conectamos
+            conexionBBDD = DriverManager.getConnection(servidor, usuario, passwd);
+            String SQL = "DELETE FROM products "
+                    + " WHERE productCode = ? ";
+
+            PreparedStatement st = conexionBBDD.prepareStatement(SQL);
+
+            st.setString(1, producto.getProductCode());
+
+            // Ejecutamos la consulta preparada (con las ventajas de seguridad y velocidad en el servidor de BBDD
+            // nos devuelve el número de registros afectados. Al ser un Delete nos debe devolver 1 si se ha hecho correctamente
             registrosAfectadosConsulta = st.executeUpdate();
             st.close();
             conexionBBDD.close();

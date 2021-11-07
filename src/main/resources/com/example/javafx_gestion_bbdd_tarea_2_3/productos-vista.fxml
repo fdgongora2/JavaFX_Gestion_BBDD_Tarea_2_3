@@ -79,7 +79,7 @@
             <TableColumn fx:id="tcProductDescription" text="Descripcion" />
         </columns>
          <GridPane.margin>
-            <Insets left="20.0" right="20.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" />
          </GridPane.margin>
       </TableView>
    </children>
